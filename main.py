@@ -1,6 +1,9 @@
 from flask import Flask, render_template, url_for
 from google.cloud import storage
 import random
+import urllib3
+
+urllib3.disable_warnings()
 
 app = Flask(__name__)
 milu = None
