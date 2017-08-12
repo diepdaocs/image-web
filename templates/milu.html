@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Milu World</title>
 </head>
-<body style="margin: 0; text-align: center" onkeypress="next_milu()" onclick="next_milu()">
+<body style="margin: 0; text-align: center">
     <img src="{{ milu_url }}"
          style="max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%">
 
@@ -12,6 +12,8 @@
         function next_milu() {
             location.reload()
         }
+        document.addEventListener('keydown', next_milu);
+        document.addEventListener('click', next_milu);
     </script>
 </body>
 </html>
