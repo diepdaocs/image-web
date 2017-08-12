@@ -5,6 +5,8 @@ import random
 app = Flask(__name__)
 milu = None
 
+MILU_BUCKET = 'milu-world'
+
 
 @app.route('/')
 def get_milu():
@@ -21,8 +23,8 @@ def update_milu():
     global milu
     milu = []
     client = storage.Client()
-    bucket = client.get_bucket('milu-project')
-    for blob in bucket.list_blobs(prefix='images/', max_results=10):
+    bucket = client.get_bucket(MILU_BUCKET)
+    for blob in bucket.list_blobs(prefix='images/'):
         if blob.content_type.startswith('image'):
             milu.append(blob.public_url)
 
